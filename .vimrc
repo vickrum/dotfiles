@@ -30,8 +30,6 @@ set linebreak
 syntax enable
 colorscheme jellybeans
 
-set wildignore+=*/tmp/*
+set wildignore+=*/tmp/*,*.jar,*.class
 
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
+map <c-l> :CtrlPBuffer<CR>

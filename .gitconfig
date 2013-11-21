@@ -34,5 +34,3 @@
     added = yellow
     changed = green
     untracked = cyan
-[include]
-    path = ~/.gitconfigusr

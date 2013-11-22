@@ -12,10 +12,12 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'leshill/vim-json'
 
+filetype plugin indent on
+
+" Markdown plugin's folding is very annoying.
+let g:vim_markdown_folding_disabled=1
+
 set exrc            " enable per-directory .vimrc files
-au Filetype python source ~/.vim/ftplugin/python.vim
-au Filetype php source ~/.vim/ftplugin/php.vim
-au Filetype ruby source ~/.vim/ftplugin/ruby.vim
 
 set number
 set mouse=a
@@ -29,6 +31,9 @@ set linebreak
 
 syntax enable
 colorscheme jellybeans
+
+" jellybeans defaults columns to 000000, which is my bg colour.
+highlight ColorColumn ctermbg=0
 
 set wildignore+=*/tmp/*,*.jar,*.class
 

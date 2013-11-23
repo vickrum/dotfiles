@@ -11,6 +11,7 @@ Bundle 'nanotech/jellybeans.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'leshill/vim-json'
+Bundle 'tomtom/tcomment_vim'
 
 filetype plugin indent on
 
@@ -18,19 +19,20 @@ filetype plugin indent on
 let g:vim_markdown_folding_disabled=1
 
 set exrc            " enable per-directory .vimrc files
-
 set number
 set mouse=a
-
 set shiftwidth=4
 set expandtab
 set tabstop=4
-
 set wrap
 set linebreak
-
 set listchars=tab:>-,trail:~,extends:>,precedes:<
 set list
+set cursorline
+set encoding=utf-8
+set ruler
+set ttyfast
+set splitright
 
 set t_Co=256
 syntax enable

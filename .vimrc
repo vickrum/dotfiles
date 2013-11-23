@@ -29,6 +29,9 @@ set tabstop=4
 set wrap
 set linebreak
 
+set listchars=tab:>-,trail:~,extends:>,precedes:<
+set list
+
 set t_Co=256
 syntax enable
 colorscheme jellybeans

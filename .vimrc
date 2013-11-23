@@ -29,6 +29,7 @@ set tabstop=4
 set wrap
 set linebreak
 
+set t_Co=256
 syntax enable
 colorscheme jellybeans
 

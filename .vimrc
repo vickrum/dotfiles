@@ -33,6 +33,7 @@ set encoding=utf-8
 set ruler
 set ttyfast
 set splitright
+set spelllang=en_gb
 
 set t_Co=256
 syntax enable
@@ -44,3 +45,4 @@ highlight ColorColumn ctermbg=0
 set wildignore+=*/tmp/*,*.jar,*.class
 
 map <c-l> :CtrlPBuffer<CR>
+map <F6> :setlocal spell! spell?<CR>

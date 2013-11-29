@@ -14,6 +14,7 @@ Bundle 'leshill/vim-json'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'scrooloose/syntastic'
+Bundle 'vickrum/vim-less'
 
 filetype plugin indent on
 
@@ -44,8 +45,9 @@ colorscheme jellybeans
 " jellybeans defaults columns to 000000, which is my bg colour.
 highlight ColorColumn ctermbg=0
 
-set wildignore+=*/tmp/*,*.jar,*.class,*/node_modules
+set wildignore+=*/tmp/*,*.jar,*.class,*/node_modules,vendor
 
 map <c-l> :CtrlPBuffer<CR>
 map <c-t> :CtrlPBufTag<CR>
 map <F6> :setlocal spell! spell?<CR>
+map <F5> :SyntasticCheck<CR>

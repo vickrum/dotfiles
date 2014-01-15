@@ -15,6 +15,7 @@ Bundle 'tomtom/tcomment_vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'scrooloose/syntastic'
 Bundle 'vickrum/vim-less'
+Bundle 'vim-scripts/grep.vim'
 
 filetype plugin indent on
 
@@ -37,6 +38,7 @@ set ruler
 set ttyfast
 set splitright
 set spelllang=en_gb
+set backspace=indent,eol,start
 
 set t_Co=256
 syntax enable
@@ -45,7 +47,8 @@ colorscheme jellybeans
 " jellybeans defaults columns to 000000, which is my bg colour.
 highlight ColorColumn ctermbg=0
 
-set wildignore+=*/tmp/*,*.jar,*.class,*/node_modules,vendor
+set wildignore+=*/tmp/*,*.jar,*.class,*/node_modules,vendor,*.pyc,*/python_modules/*
+let Grep_Skip_Dirs = 'tmp node_modules vendor python_modules'
 
 map <c-l> :CtrlPBuffer<CR>
 map <c-t> :CtrlPBufTag<CR>

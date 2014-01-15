@@ -17,6 +17,7 @@
     co = checkout
     df = diff
     dfs = diff --staged
+    vdf = difftool -t vimdiff
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --date-order
     lga = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --date-order --branches --remotes
     nci = commit --allow-empty-message -m \"\"

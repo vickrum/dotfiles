@@ -39,6 +39,8 @@ set ttyfast
 set splitright
 set spelllang=en_gb
 set backspace=indent,eol,start
+set scrolloff=3
+set fileformats=unix
 
 set t_Co=256
 syntax enable

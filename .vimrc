@@ -16,6 +16,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'scrooloose/syntastic'
 Bundle 'vickrum/vim-less'
 Bundle 'vim-scripts/grep.vim'
+Bundle 'terryma/vim-multiple-cursors'
 
 filetype plugin indent on
 

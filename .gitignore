@@ -43,3 +43,6 @@ Thumbs.db
 .vimrc
 *.sublime-project
 *.sublime-workspace
+
+# Other shit
+*.python-version

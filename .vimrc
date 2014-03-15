@@ -55,5 +55,7 @@ let Grep_Skip_Dirs = 'tmp node_modules vendor python_modules'
 
 map <c-l> :CtrlPBuffer<CR>
 map <c-t> :CtrlPBufTag<CR>
-map <F6> :setlocal spell! spell?<CR>
+map <F4> :SyntasticToggleMode<CR>
 map <F5> :SyntasticCheck<CR>
+map <F6> :setlocal spell! spell?<CR>
+noremap <space> :set hlsearch! hlsearch?<CR>

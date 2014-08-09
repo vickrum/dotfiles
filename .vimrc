@@ -10,7 +10,7 @@ Bundle 'gmarik/vundle'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'plasticboy/vim-markdown'
-Bundle 'leshill/vim-json'
+Bundle 'elzr/vim-json'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'scrooloose/syntastic'
@@ -22,6 +22,12 @@ filetype plugin indent on
 
 " Markdown plugin's folding is very annoying.
 let g:vim_markdown_folding_disabled=1
+
+" Don't automatically syntax check on file write, cos it fucks with ctrl-z.
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+
+" Disable concealing in json
+let g:vim_json_syntax_conceal = 0
 
 set exrc            " enable per-directory .vimrc files
 set number
@@ -59,3 +65,9 @@ map <F4> :SyntasticToggleMode<CR>
 map <F5> :SyntasticCheck<CR>
 map <F6> :setlocal spell! spell?<CR>
 noremap <space> :set hlsearch! hlsearch?<CR>
+
+" To run each line through a json prettifier, eg json logs
+" :g/^/execute '.!python -m json.tool'
+
+" To fix syntax highlighting on files with very long lines.
+" :set synmaxcol=5000

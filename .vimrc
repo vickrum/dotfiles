@@ -1,22 +1,22 @@
 set nocompatible              " be iMproved
 filetype off                  " required!
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'elzr/vim-json'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'scrooloose/syntastic'
-Bundle 'vickrum/vim-less'
-Bundle 'vim-scripts/grep.vim'
-Bundle 'terryma/vim-multiple-cursors'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'elzr/vim-json'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'scrooloose/syntastic'
+Plugin 'vickrum/vim-less'
+Plugin 'vim-scripts/grep.vim'
+Plugin 'terryma/vim-multiple-cursors'
 
 filetype plugin indent on
 

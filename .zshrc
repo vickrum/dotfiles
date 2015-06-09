@@ -1,7 +1,21 @@
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.zhistfile
-HISTSIZE=1000
-SAVEHIST=1000
+# history
+
+HISTSIZE=16384
+SAVEHIST=16384
+HISTFILE=~/.zhistory
+
+setopt append_history
+setopt completeinword
+setopt extended_history
+setopt hist_find_no_dups
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_no_functions
+setopt hist_no_store
+setopt hist_reduce_blanks
+setopt hist_save_no_dups
+setopt inc_append_history
+setopt share_history
 
 # For PuTTY
 export TERM=xterm-256color
@@ -29,7 +43,7 @@ zstyle ':vcs_info:*' actionformats '[%F{120}%b%u%c%f:%F{87}%a%f]'
 setopt prompt_subst
 function prompt()
 {
-    git branch > /dev/null 2> /dev/null && echo '±' && return
+    git branch > /dev/null 2> /dev/null && echo '$' && return
     echo '%(0#.#.$)'
 }
 add-zsh-hook precmd vcs_info

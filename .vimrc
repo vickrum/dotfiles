@@ -12,13 +12,13 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'elzr/vim-json'
 Plugin 'tomtom/tcomment_vim'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'scrooloose/syntastic'
 Plugin 'vickrum/vim-less'
 Plugin 'vim-scripts/grep.vim'
-Plugin 'terryma/vim-multiple-cursors'
 
 filetype plugin indent on
+
+" let g:jellybeans_use_lowcolor_black = 0
 
 " Markdown plugin's folding is very annoying.
 let g:vim_markdown_folding_disabled=1
@@ -67,7 +67,16 @@ map <F6> :setlocal spell! spell?<CR>
 noremap <space> :set hlsearch! hlsearch?<CR>
 
 " To run each line through a json prettifier, eg json logs
-" :g/^/execute '.!python -m json.tool'
+function! s:Jsonify()
+    exe ":g/^/execute '.!python -m json.tool'"
+    exe ":set ft=json"
+endfunction
+command! Jsonify call s:Jsonify()
 
 " To fix syntax highlighting on files with very long lines.
 " :set synmaxcol=5000
+
+" Unfuck background colouring with jellybeans on Linux.
+" https://github.com/nanotech/jellybeans.vim/issues/39
+hi Normal ctermbg=none
+hi NonText ctermbg=none

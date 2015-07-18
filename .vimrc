@@ -7,7 +7,6 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required!
 Plugin 'gmarik/Vundle.vim'
-Plugin 'nanotech/jellybeans.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'elzr/vim-json'
@@ -15,10 +14,9 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'vickrum/vim-less'
 Plugin 'vim-scripts/grep.vim'
+Plugin 'fabi1cazenave/kalahari.vim'
 
 filetype plugin indent on
-
-" let g:jellybeans_use_lowcolor_black = 0
 
 " Markdown plugin's folding is very annoying.
 let g:vim_markdown_folding_disabled=1
@@ -51,10 +49,8 @@ set fileformats=unix
 
 set t_Co=256
 syntax enable
-colorscheme jellybeans
 
-" jellybeans defaults columns to 000000, which is my bg colour.
-highlight ColorColumn ctermbg=0
+colorscheme kalahari
 
 set wildignore+=*/tmp/*,*.jar,*.class,*/node_modules,vendor,*.pyc,*/python_modules/*
 let Grep_Skip_Dirs = 'tmp node_modules vendor python_modules'
@@ -69,14 +65,10 @@ noremap <space> :set hlsearch! hlsearch?<CR>
 " To run each line through a json prettifier, eg json logs
 function! s:Jsonify()
     exe ":g/^/execute '.!python -m json.tool'"
+    exe ":%s/\\s\\+$//g"
     exe ":set ft=json"
 endfunction
 command! Jsonify call s:Jsonify()
 
 " To fix syntax highlighting on files with very long lines.
 " :set synmaxcol=5000
-
-" Unfuck background colouring with jellybeans on Linux.
-" https://github.com/nanotech/jellybeans.vim/issues/39
-hi Normal ctermbg=none
-hi NonText ctermbg=none

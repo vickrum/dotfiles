@@ -2,7 +2,10 @@ if [ -f "$HOME/.aliasrc" ]
     then . $HOME/.aliasrc
 fi
 
+if [ -d "$HOME/.common.d" ]
+    then for src in $HOME/.common.d/*; do . $src; done
+fi
+
 if [ -f "$HOME/.localrc" ]
     then . $HOME/.localrc
 fi
-

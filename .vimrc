@@ -15,6 +15,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'vickrum/vim-less'
 Plugin 'vim-scripts/grep.vim'
 Plugin 'fabi1cazenave/kalahari.vim'
+Plugin 'mmalecki/vim-node.js'
+Plugin 'derekwyatt/vim-scala'
 
 filetype plugin indent on
 
@@ -46,11 +48,17 @@ set spelllang=en_gb
 set backspace=indent,eol,start
 set scrolloff=3
 set fileformats=unix
+set ttymouse=sgr
 
 set t_Co=256
-syntax enable
+syntax on
 
 colorscheme kalahari
+
+" Fix background colouring on Linux.
+" https://github.com/nanotech/jellybeans.vim/issues/39
+hi Normal ctermbg=none
+hi NonText ctermbg=none
 
 set wildignore+=*/tmp/*,*.jar,*.class,*/node_modules,vendor,*.pyc,*/python_modules/*
 let Grep_Skip_Dirs = 'tmp node_modules vendor python_modules'

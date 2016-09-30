@@ -46,5 +46,8 @@ Thumbs.db
 
 # Other shit
 *.python-version
+*.ruby-version
 current
 tags
+node_modules
+.idea

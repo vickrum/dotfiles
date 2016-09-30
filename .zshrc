@@ -22,6 +22,8 @@ export TERM=xterm-256color
 
 bindkey -v
 bindkey '^R' history-incremental-search-backward
+bindkey '^[p' history-beginning-search-backward
+bindkey '^[n' history-beginning-search-forward
 
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -41,14 +43,35 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' formats '[%F{120}%b%u%c%f]'
 zstyle ':vcs_info:*' actionformats '[%F{120}%b%u%c%f:%F{87}%a%f]'
 setopt prompt_subst
+
 function prompt()
 {
     git branch > /dev/null 2> /dev/null && echo '$' && return
     echo '%(0#.#.$)'
 }
+
 add-zsh-hook precmd vcs_info
+
+function jobcount() {
+  # needs work. often overcounts.
+  local stopped=$(jobs | wc -l)
+  if (($stopped)); then
+    echo -n "(%F{111}${stopped}%f)"
+  fi
+}
+
+function tmux_pane() {
+    if [ "$TMUX" ]; then
+        echo -n "[%F{105}$(tmux display-message -p '#P')%f]"
+    fi
+}
+
+function docker-ip() {
+  sudo docker inspect --format '{{ .NetworkSettings.Networks.local.IPAddress }}' "$@"
+}
+
 PROMPT='
-[%F{216}%T%f][%F{172}%m%f:%F{222}${PWD/#$HOME/~}%f]${vcs_info_msg_0_}
+[%F{216}%T%f][%F{172}%m%f:%F{222}${PWD/#$HOME/~}%f]${vcs_info_msg_0_}$(tmux_pane) $(jobcount)
 $(prompt) '
 
 # title

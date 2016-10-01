@@ -82,4 +82,9 @@ case $TERM in
         ;;
 esac
 
-. $HOME/.commonrc
+alias ls='ls --color=auto'
+alias ll='ls -lphAF'
+alias ct='ctags -R *'
+
+eval "$(pyenv init -)"
+eval "$(rbenv init -)"

@@ -1,3 +1,0 @@
-alias ls='ls --color=auto'
-alias ll='ls -lphAF'
-alias ct='ctags -R *'

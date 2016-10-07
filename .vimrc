@@ -63,12 +63,16 @@ hi NonText ctermbg=none
 set wildignore+=*/tmp/*,*.jar,*.class,*/node_modules,vendor,*.pyc,*/python_modules/*
 let Grep_Skip_Dirs = 'tmp node_modules vendor python_modules'
 
+let mapleader = ","
+
 map <c-l> :CtrlPBuffer<CR>
 map <c-t> :CtrlPBufTag<CR>
 map <F4> :SyntasticToggleMode<CR>
 map <F5> :SyntasticCheck<CR>
 map <F6> :setlocal spell! spell?<CR>
 noremap <space> :set hlsearch! hlsearch?<CR>
+nnoremap <Leader>c :w !xsel -i -b<CR>
+nnoremap <Leader>p :r !xsel -o -b<CR>
 
 " To run each line through a json prettifier, eg json logs
 function! s:Jsonify()

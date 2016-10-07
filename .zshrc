@@ -86,5 +86,12 @@ alias ls='ls --color=auto'
 alias ll='ls -lphAF'
 alias ct='ctags -R *'
 
-eval "$(pyenv init -)"
-eval "$(rbenv init -)"
+which pyenv > /dev/null
+if [ $? -eq 0 ]; then
+    eval "$(pyenv init -)"
+fi
+
+which rbenv > /dev/null
+if [ $? -eq 0 ]; then
+    eval "$(rbenv init -)"
+fi

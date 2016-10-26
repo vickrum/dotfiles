@@ -42,8 +42,8 @@ zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' unstagedstr '%F{157}*'
 zstyle ':vcs_info:*' stagedstr '%F{11}+'
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' formats '[%F{120}%b%u%c%f]'
-zstyle ':vcs_info:*' actionformats '[%F{120}%b%u%c%f:%F{87}%a%f]'
+zstyle ':vcs_info:*' formats '%F{120}%b%u%c%f'
+zstyle ':vcs_info:*' actionformats '%F{120}%b%u%c%f:%F{87}%a%f'
 setopt prompt_subst
 
 function prompt()
@@ -58,7 +58,7 @@ function jobcount() {
   # needs work. often overcounts.
   local stopped=$(jobs | wc -l)
   if (($stopped)); then
-    echo -n "(%F{111}${stopped}%f)"
+    echo -n "%F{111}${stopped}%f"
   fi
 }
 
@@ -73,7 +73,7 @@ function docker-ip() {
 }
 
 PROMPT='
-[%F{216}%T%f][%F{172}%m%f:%F{222}${PWD/#$HOME/~}%f]${vcs_info_msg_0_}$(tmux_pane) $(jobcount)
+%F{69}%T%f %F{69}%m%f %F{43}${PWD/#$HOME/~}%f ${vcs_info_msg_0_} $(jobcount)
 $(prompt) '
 
 # title

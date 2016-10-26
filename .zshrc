@@ -20,6 +20,8 @@ setopt share_history
 # For PuTTY
 export TERM=xterm-256color
 
+stty -ixon # Disable flow control
+
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 bindkey '^[p' history-beginning-search-backward

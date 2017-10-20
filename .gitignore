@@ -24,7 +24,6 @@
 # Logs and databases #
 ######################
 *.log
-*.sql
 *.sqlite
 
 # OS generated files #
@@ -50,4 +49,5 @@ Thumbs.db
 current
 tags
 node_modules
+python_modules
 .idea

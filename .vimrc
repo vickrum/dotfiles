@@ -60,7 +60,7 @@ colorscheme kalahari
 hi Normal ctermbg=none
 hi NonText ctermbg=none
 
-set wildignore+=*/tmp/*,*.jar,*.class,*/node_modules,vendor,*.pyc,*/python_modules/*
+set wildignore+=*/tmp/*,*.jar,*.class,*/node_modules,vendor,*.pyc,*/python_modules/*,target
 let Grep_Skip_Dirs = 'tmp node_modules vendor python_modules'
 
 let mapleader = ","
@@ -71,13 +71,14 @@ map <F4> :SyntasticToggleMode<CR>
 map <F5> :SyntasticCheck<CR>
 map <F6> :setlocal spell! spell?<CR>
 noremap <space> :set hlsearch! hlsearch?<CR>
-nnoremap <Leader>c :w !xsel -i -b<CR>
+nnoremap <Leader>y :w !xsel -i -b<CR>
 nnoremap <Leader>p :r !xsel -o -b<CR>
 
 " To run each line through a json prettifier, eg json logs
 function! s:Jsonify()
-    exe ":g/^/execute '.!python -m json.tool'"
-    exe ":%s/\\s\\+$//g"
+    exe ":g/^/execute '.!jq -r .'"
+    " exe ":g/^/execute '.!python -m json.tool'"
+    " exe ":%s/\\s\\+$//g"
     exe ":set ft=json"
 endfunction
 command! Jsonify call s:Jsonify()

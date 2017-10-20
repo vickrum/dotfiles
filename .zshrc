@@ -87,6 +87,7 @@ esac
 alias ls='ls --color=auto'
 alias ll='ls -lphAF'
 alias ct='ctags -R *'
+alias grep='grep --colour=always'
 
 which pyenv > /dev/null
 if [ $? -eq 0 ]; then

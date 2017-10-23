@@ -45,12 +45,14 @@ let mapleader = ","
 
 ca tn tabnew
 
-map <c-p> :Denite file_rec<CR>
-map <c-l> :Denite buffer<CR>
-map <c-t> :Denite outline<CR>
+map <c-p> :Denite file_rec<cr>
+map <c-l> :Denite buffer<cr>
+map <c-t> :Denite outline<cr>
 
-nnoremap <Leader>y :w !xsel -i -b<CR>
-nnoremap <Leader>p :r !xsel -o -b<CR>
+nnoremap <leader>y :w !xsel -i -b<cr>
+nnoremap <leader>p :r !xsel -o -b<cr>
+nnoremap <leader>t :tabnew<cr>
+tnoremap <esc><esc> <c-\><c-n>
 
 call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
 call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')

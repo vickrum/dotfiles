@@ -32,6 +32,7 @@ bindkey '^[n' history-beginning-search-forward
 zstyle :compinstall filename '/home/vickrum/.zshrc'
 
 autoload -Uz compinit
+fpath=(~/utils/comp/zsh/ $fpath)
 compinit
 # End of lines added by compinstall
 

@@ -73,6 +73,7 @@ map <F6> :setlocal spell! spell?<CR>
 noremap <space> :set hlsearch! hlsearch?<CR>
 nnoremap <Leader>y :w !xsel -i -b<CR>
 nnoremap <Leader>p :r !xsel -o -b<CR>
+vnoremap // y/<C-R>"<CR>
 
 " To run each line through a json prettifier, eg json logs
 function! s:Jsonify()

@@ -51,3 +51,6 @@ tags
 node_modules
 python_modules
 .idea
+config.json
+*.patch
+*.diff

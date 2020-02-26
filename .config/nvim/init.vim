@@ -39,12 +39,15 @@ set tabstop=4
 noremap <space> :set hlsearch! hlsearch?<CR>
 
 " Remove background
+set background=dark
 hi Normal ctermbg=none
 hi NonText ctermbg=none
 
 let mapleader = ","
 
 ca tn tabnew
+
+nnoremap <c-q> <c-a>
 
 map <c-p> :Denite file_rec<cr>
 map <c-l> :Denite buffer<cr>

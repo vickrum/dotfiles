@@ -54,3 +54,4 @@ python_modules
 config.json
 *.patch
 *.diff
+*.code-workspace

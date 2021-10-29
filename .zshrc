@@ -17,24 +17,12 @@ setopt hist_save_no_dups
 setopt inc_append_history
 setopt share_history
 
-# For PuTTY
-export TERM=xterm-256color
-
-stty -ixon # Disable flow control
+stty -ixon # Prevent Ctrl-S from pausing terminal.
 
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 bindkey '^[p' history-beginning-search-backward
 bindkey '^[n' history-beginning-search-forward
-
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/vickrum/.zshrc'
-
-autoload -Uz compinit
-fpath=(~/utils/comp/zsh/ $fpath)
-compinit
-# End of lines added by compinstall
 
 # prompt
 autoload -Uz promptinit vcs_info
@@ -63,39 +51,18 @@ function jobcount() {
   fi
 }
 
-function tmux_pane() {
-    if [ "$TMUX" ]; then
-        echo -n "[%F{105}$(tmux display-message -p '#P')%f]"
-    fi
-}
-
-function docker-ip() {
-  sudo docker inspect --format '{{ .NetworkSettings.Networks.local.IPAddress }}' "$@"
-}
-
 PROMPT='
 %F{69}%T%f %F{69}%m%f %F{43}${PWD/#$HOME/~}%f ${vcs_info_msg_0_} $(jobcount)
 $(prompt) '
 
 # title
 case $TERM in
-    putty*|xterm*|screen*)
+    xterm*|screen*)
         function title() { print -Pn "\e]0;%m: ${PWD/#$HOME/~}\a" }
         add-zsh-hook precmd title
         ;;
 esac
 
 alias ls='ls --color=auto'
-alias ll='ls -lphAF'
-alias ct='ctags -R *'
+alias ll='ls -lphAF --color=always'
 alias grep='grep --colour=always'
-
-which pyenv > /dev/null
-if [ $? -eq 0 ]; then
-    eval "$(pyenv init -)"
-fi
-
-which rbenv > /dev/null
-if [ $? -eq 0 ]; then
-    eval "$(rbenv init -)"
-fi

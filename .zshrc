@@ -52,7 +52,7 @@ function jobcount() {
 }
 
 PROMPT='
-%F{69}%T%f %F{69}%m%f %F{43}${PWD/#$HOME/~}%f ${vcs_info_msg_0_} $(jobcount)
+%F{43}${PWD/#$HOME/~}%f ${vcs_info_msg_0_} $(jobcount)
 $(prompt) '
 
 # title

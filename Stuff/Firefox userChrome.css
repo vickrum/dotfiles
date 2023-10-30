@@ -1,12 +1,12 @@
 /**
  * Hides the toolbox when not in fullscreen mode.
  *
- * Only issue is that it stays hidden even when the urlbar
- * is focused.
+ * Only issue is that it stays hidden even when the urlbar is focused.
  * This can be fixed once Firefox adds support for :has().
  */
-html:not([inFullscreen="true"]) {
-  #navigator-toolbox-background {
+
+ html:not([inFullscreen="true"]) {
+  #navigator-toolbox {
     /* Make it sit on top of the page. */
     position: absolute;
     right: 0;
@@ -15,43 +15,40 @@ html:not([inFullscreen="true"]) {
     width: 100%;
     z-index: 1;
 
-    #navigator-toolbox {
+    background-color: rgba(0, 0, 0, 0) !important;
+    border-bottom: none !important;
+    transition: background-color 0.3s ease;
+
+    #nav-bar {
       background-color: rgba(0, 0, 0, 0) !important;
-      border-bottom: none !important;
-      transition: background-color 0.3s ease;
 
-      #nav-bar {
-        background-color: rgba(0, 0, 0, 0) !important;
-
-        /* Reset urlbar background when focused */
-        #urlbar:is([focused="true"], [open]) {
-          #urlbar-background {
-            background-color: var(--toolbar-field-focus-background-color) !important;
-          }
-        }
-
+      /* Reset urlbar background when focused */
+      #urlbar:is([focused="true"], [open]) {
         #urlbar-background {
-          background-color: rgba(0, 0, 0, 0) !important;
+          background-color: var(--toolbar-field-focus-background-color) !important;
         }
+      }
+
+      #urlbar-background {
+        background-color: rgba(0, 0, 0, 0) !important;
       }
     }
   }
 
-  #navigator-toolbox-background:hover {
+
+  #navigator-toolbox:hover {
     top: 0;
     transition: top 0.3s ease;
 
-    #navigator-toolbox {
-      background-color: var(--lwt-accent-color) !important;
-      border-bottom: 1px solid var(--chrome-content-separator-color) !important;
-      transition: background-color 0.2s ease;
+    background-color: var(--lwt-accent-color) !important;
+    border-bottom: 1px solid var(--chrome-content-separator-color) !important;
+    transition: background-color 0.2s ease;
 
-      #nav-bar {
-        background-color: var(--toolbar-bgcolor) !important;
+    #nav-bar {
+      background-color: var(--toolbar-bgcolor) !important;
 
-        #urlbar-background {
-          background-color: var(--toolbar-field-background-color) !important;
-        }
+      #urlbar-background {
+        background-color: var(--toolbar-field-background-color) !important;
       }
     }
   }

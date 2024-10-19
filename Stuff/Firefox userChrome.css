@@ -47,3 +47,22 @@
     }
   }
 }
+
+/** Repeats the ruleset when Firefox's menu is open. */
+html:not([inFullscreen="true"]):has(#appMenu-popup:is([panelopen="true"])) {
+  #navigator-toolbox {
+    top: 0;
+    transition: all 0.3s ease !important;
+
+    background-color: var(--lwt-accent-color) !important;
+    border-bottom: 1px solid var(--chrome-content-separator-color) !important;
+
+    #nav-bar {
+      background-color: var(--toolbar-bgcolor) !important;
+
+      #urlbar-background {
+        background-color: var(--toolbar-field-background-color) !important;
+      }
+    }
+  }
+}

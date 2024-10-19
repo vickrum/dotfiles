@@ -1,23 +1,35 @@
 /**
  * Hides the toolbox when not in fullscreen mode.
- *
- * Only issue is that it stays hidden even when the urlbar is focused.
- * This can be fixed once Firefox adds support for :has().
  */
-
  html:not([inFullscreen="true"]) {
+  #navigator-toolbox:hover,
+  #navigator-toolbox:has(#urlbar:is([focused], [open])) {
+    top: 0;
+    transition: all 0.3s ease !important;
+
+    background-color: var(--lwt-accent-color) !important;
+    border-bottom: 1px solid var(--chrome-content-separator-color) !important;
+
+    #nav-bar {
+      background-color: var(--toolbar-bgcolor) !important;
+
+      #urlbar-background {
+        background-color: var(--toolbar-field-background-color) !important;
+      }
+    }
+  }
+
   #navigator-toolbox {
     /* Make it sit on top of the page. */
     position: absolute;
     right: 0;
     top: -75px;
-    transition: top 0.3s ease;
+    transition: all 0.3s ease !important;
     width: 100%;
     z-index: 1;
 
     background-color: rgba(0, 0, 0, 0) !important;
     border-bottom: none !important;
-    transition: background-color 0.3s ease;
 
     #nav-bar {
       background-color: rgba(0, 0, 0, 0) !important;
@@ -31,24 +43,6 @@
 
       #urlbar-background {
         background-color: rgba(0, 0, 0, 0) !important;
-      }
-    }
-  }
-
-
-  #navigator-toolbox:hover {
-    top: 0;
-    transition: top 0.3s ease;
-
-    background-color: var(--lwt-accent-color) !important;
-    border-bottom: 1px solid var(--chrome-content-separator-color) !important;
-    transition: background-color 0.2s ease;
-
-    #nav-bar {
-      background-color: var(--toolbar-bgcolor) !important;
-
-      #urlbar-background {
-        background-color: var(--toolbar-field-background-color) !important;
       }
     }
   }
